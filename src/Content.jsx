@@ -11,6 +11,7 @@ import { LogoutLink } from "./LogoutLink";
 
 export function Content() {
   const [routines, setRoutines] = useState([]);
+  const [users, setUsers] = useState([]);
   const [isRoutinesShowVisible, setIsRoutinesShowVisible] = useState(false);
   const [currentRoutine, setCurrentRoutine] = useState({});
 
@@ -22,11 +23,21 @@ export function Content() {
     });
   };
 
+  const handleIndexUsers = () => {
+    console.log("handleIndexUsers");
+    axios.get("http://localhost:3000/users.json").then((response) => {
+      console.log(response.data);
+      setUsers(response.data);
+    });
+  };
+
   const handleCreateRoutine = (params, successCallback) => {
     console.log("handleCreateRoutine", params);
-    axios.post("http://localhost:3000/routines.json", params);
-    setRoutines([...routines, response.data]);
-    successCallback();
+    axios.post("http://localhost:3000/routines.json", params).then((response) => {
+      console.log(response.data);
+      setRoutines([...routines, response.data]);
+      successCallback();
+    });
   };
 
   const handleShowRoutine = (routine) => {
@@ -41,12 +52,16 @@ export function Content() {
   };
 
   useEffect(handleIndexRoutines, []);
+  useEffect(handleIndexUsers, []);
 
   return (
     <div className="container">
       <Routes>
         <Route path="/routines/new" element={<RoutinesNew onCreateRoutine={handleCreateRoutine} />} />
-        <Route path="/" element={<RoutinesIndex routines={routines} onShowRoutine={handleShowRoutine} />} />
+        <Route
+          path="/"
+          element={<RoutinesIndex users={users} routines={routines} onShowRoutine={handleShowRoutine} />}
+        />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>
