@@ -10,7 +10,7 @@ export function RoutinesIndex(props) {
           <div key={routine.id}>
             <h2>{routine.name}</h2>
             <p>{routine.description}</p>
-            <p>Routine created by {user ? user.name : ""}</p>
+            <p>Routine created by: {user ? <a href={`/users/${user.id}`}>{user.name}</a> : ""}</p>
             <button onClick={() => props.onShowRoutine(routine)}>Show Routine</button>
           </div>
         );
