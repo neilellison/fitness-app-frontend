@@ -1,3 +1,74 @@
 html {
   scroll-behavior: smooth;
+  padding: 10px;
+  background-color: gray;
 }
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  font-size: 2em !important;
+  font-family: "Roboto", sans-serif;
+}
+
+.card {
+  flex-basis: calc(33.33% - 20px);
+  background-color: rgb(255, 254, 254);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+div .row {
+  background-color: white;
+}
+div {
+  background-color: rgb(160, 227, 251);
+}
+
+img {
+  max-width: 150px;
+  max-height: 150px;
+  margin: 4px;
+  border-radius: 20px;
+}
+
+p, h1, h2, h3 {
+  font-family: "Oswald", sans-serif;
+}
+
+.routine-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.routine {
+  background-color: rgb(160, 227, 251);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgb(43, 43, 249);
+  padding: 10px;
+  margin-bottom: 20px;
+  transform: skew(-2eg);
+}
+
+h3 {
+  background-color: #cecee2;
+  border-radius: 6px;
+}
+
+div .card, .container {
+  margin-bottom: 10px;
+  margin-left: 6px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+footer {
+  background-color: white;
+}
+

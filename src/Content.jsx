@@ -15,6 +15,7 @@ export function Content() {
   const [users, setUsers] = useState([]);
   const [isRoutinesShowVisible, setIsRoutinesShowVisible] = useState(false);
   const [currentRoutine, setCurrentRoutine] = useState({});
+  const [exercises, setExercises] = useState([]);
 
   const handleIndexRoutines = () => {
     console.log("handleIndexRoutines");
@@ -24,20 +25,20 @@ export function Content() {
     });
   };
 
-  const handleIndexUsers = () => {
-    console.log("handleIndexUsers");
-    axios.get("http://localhost:3000/users.json").then((response) => {
-      console.log(response.data);
-      setUsers(response.data);
-    });
-  };
-
   const handleCreateRoutine = (params, successCallback) => {
     console.log("handleCreateRoutine", params);
     axios.post("http://localhost:3000/routines.json", params).then((response) => {
       console.log(response.data);
       setRoutines([...routines, response.data]);
       successCallback();
+    });
+  };
+
+  const handleIndexExercises = () => {
+    console.log("handleIndexExercises");
+    axios.get("http://localhost:3000/exercises.json").then((response) => {
+      console.log(response.data);
+      setExercises(response.data);
     });
   };
 
@@ -54,12 +55,15 @@ export function Content() {
   };
 
   useEffect(handleIndexRoutines, []);
-  useEffect(handleIndexUsers, []);
+  useEffect(handleIndexExercises, []);
 
   return (
     <div className="container">
       <Routes>
-        <Route path="/routines/new" element={<RoutinesNew onCreateRoutine={handleCreateRoutine} />} />
+        <Route
+          path="/routines/new"
+          element={<RoutinesNew onCreateRoutine={handleCreateRoutine} exercises={exercises} />}
+        />
         <Route
           path="/"
           element={<RoutinesIndex users={users} routines={routines} onShowRoutine={handleShowRoutine} />}
@@ -72,7 +76,7 @@ export function Content() {
       <LogoutLink />
       --------------
       <Modal show={isRoutinesShowVisible} onClose={handleClose}>
-        {currentRoutine && <RoutinesShow id={currentRoutine.id} />}
+        <RoutinesShow routine={currentRoutine} />
       </Modal>
     </div>
   );

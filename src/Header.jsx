@@ -7,8 +7,8 @@ export function Header() {
         <Link className="navbar-brand" to="/">
           <img
             src="https://www.pngitem.com/pimgs/m/342-3424195_muscle-icons-png-muscle-clipart-black-and-white.png"
-            width="30"
-            height="30"
+            width="40"
+            height="40"
             className="d-inline-block align-top"
             alt=""
           ></img>

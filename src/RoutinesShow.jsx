@@ -1,26 +1,30 @@
-import { useState, useEffect } from "react";
+/* eslint-disable react/prop-types */
 
 export function RoutinesShow(props) {
-  const [routineExercises, setRoutineExercises] = useState([]);
-
-  useEffect(() => {
-    fetch(`/api/routines/routine_exercises/${props.id}`)
-      .then((response) => response.json())
-      .then((data) => setRoutineExercises(data));
-  }, [props.id]);
+  console.log(props);
 
   return (
-    <div>
-      <div className="card">
-        <ul className="list-group list-group-flush">
-          {routineExercises.map((routineExercise) => (
-            <li key={routineExercise.id} className="list-group-item">
-              <strong>{routineExercise.exercise.name}</strong>
-              <p>Reps: {routineExercise.reps}</p>
-            </li>
-          ))}
-        </ul>
+    <div className="card">
+      <div>
+        <h1>{props.routine.name}</h1>
+        <h6>{props.routine.description}</h6>
       </div>
+      <strong>
+        <h2>Exercises</h2>
+      </strong>
+      {props.routine.exercises.map((exercise) => (
+        <li key={exercise.id} className="list-group-item">
+          <h3>{exercise.name}</h3>
+          <img src={exercise.image_url} />
+          <h4>{exercise.description}</h4>
+          <h6>
+            Video Example:{" "}
+            <a href={exercise.video_url} target="_blank" rel="noopener noreferrer">
+              {exercise.video_url}
+            </a>
+          </h6>
+        </li>
+      ))}
     </div>
   );
 }
