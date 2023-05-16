@@ -4,7 +4,7 @@ export function RoutinesShow(props) {
   const [routineExercises, setRoutineExercises] = useState([]);
 
   useEffect(() => {
-    fetch(`/api/routines/${props.id}/routine_exercises`)
+    fetch(`/api/routines/routine_exercises/${props.id}`)
       .then((response) => response.json())
       .then((data) => setRoutineExercises(data));
   }, [props.id]);

@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
+import { UsersShow } from "./UsersShow";
 
 export function Content() {
   const [routines, setRoutines] = useState([]);
@@ -49,6 +50,7 @@ export function Content() {
   const handleClose = () => {
     console.log("handleClose");
     setIsRoutinesShowVisible(false);
+    setCurrentRoutine(null);
   };
 
   useEffect(handleIndexRoutines, []);
@@ -62,6 +64,7 @@ export function Content() {
           path="/"
           element={<RoutinesIndex users={users} routines={routines} onShowRoutine={handleShowRoutine} />}
         />
+        <Route path="/users/:id" element={<UsersShow users={users} routines={routines} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>
@@ -69,7 +72,7 @@ export function Content() {
       <LogoutLink />
       --------------
       <Modal show={isRoutinesShowVisible} onClose={handleClose}>
-        <RoutinesShow routine={currentRoutine} />
+        {currentRoutine && <RoutinesShow id={currentRoutine.id} />}
       </Modal>
     </div>
   );

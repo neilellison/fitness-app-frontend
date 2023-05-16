@@ -17,11 +17,12 @@ export function Header() {
         <ul className="navbar-nav mr-auto flex-row"></ul>
         {localStorage.jwt === undefined ? (
           <>
-            <Link to="routines/new"> Create Routine </Link> |<Link to="/signup"> Signup </Link> |
-            <Link to="/login"> Login </Link>
+            <Link to="/signup"> Signup </Link> |<Link to="/login"> Login </Link>
           </>
         ) : (
-          <Link to="/logout"> Logout </Link>
+          <>
+            <Link to="routines/new"> Create Routine </Link> |<Link to="/logout"> Logout </Link>
+          </>
         )}
         ;
       </nav>

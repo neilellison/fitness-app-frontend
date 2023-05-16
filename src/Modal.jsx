@@ -12,5 +12,7 @@ export function Modal(props) {
         </section>
       </div>
     );
+  } else {
+    return null;
   }
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 export function RoutinesIndex(props) {
   return (
@@ -10,7 +10,7 @@ export function RoutinesIndex(props) {
           <div key={routine.id}>
             <h2>{routine.name}</h2>
             <p>{routine.description}</p>
-            <p>Routine created by: {user ? <a href={`/users/${user.id}`}>{user.name}</a> : ""}</p>
+            <p>Routine created by: {user ? <Link to={`/users/${user.id}`}>{user.name}</Link> : ""}</p>
             <button onClick={() => props.onShowRoutine(routine)}>Show Routine</button>
           </div>
         );
