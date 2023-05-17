@@ -1,6 +1,6 @@
 # Muscler (Frontend)
 
-Muscler is essentially a Twitter for workouts. Instead of making a "tweet", a user can create a new exercise routine, which consists of a name, description, and a list of exercises with their respective reps and sets.
+Muscler is essentially a Twitter for workouts. Instead of making a "tweet", a user can create a new exercise routine, which consists of a name, description, and a list of exercises with their respective reps and sets. On the home page, a user will see an index of exercise routines. If they click on the button "Show Routine", a modal that displays all of the exercises associated with that routine will show up. 
 
 This app was built with a Ruby on Rails backend and a React.jsx frontend. Most of the coding was done in Javascript, with some HTML. The styling was done with both bootstrap and some custom CSS.
 
