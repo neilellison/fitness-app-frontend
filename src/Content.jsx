@@ -12,7 +12,7 @@ import { UsersShow } from "./UsersShow";
 
 export function Content() {
   const [routines, setRoutines] = useState([]);
-  const [users, setUsers] = useState([]);
+  const [users] = useState([]);
   const [isRoutinesShowVisible, setIsRoutinesShowVisible] = useState(false);
   const [currentRoutine, setCurrentRoutine] = useState({});
   const [exercises, setExercises] = useState([]);
