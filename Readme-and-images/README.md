@@ -22,3 +22,11 @@ You can view the app on http://localhost:5173.
 ## Roadmap
 
 Although this app is fairly functional, there are a few additions I would like to make. I plan on adding a "likes" model where users can like certain routines, which would then show up in a "Likes" section of the User's show page. I would also like to add a feature where users can comment on different routines, and maybe even give them a rating of 1-5.
+
+## Home Page
+
+![screenshot](screenshot.png)
+
+## Modal
+
+![screenshot](screenshot2.png)
