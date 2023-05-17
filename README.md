@@ -1,4 +1,4 @@
-# <Muscler>
+# <Muscler (Frontend)>
 
 Muscler is essentially a Twitter for workouts. Instead of making a "tweet", a user can create a new exercise routine, which consists of a name, description, and a list of exercises with their respective reps and sets.
 
