@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
 export function RoutinesIndex(props) {
@@ -11,7 +12,7 @@ export function RoutinesIndex(props) {
             <div key={routine.id} className="routine">
               <h2>{routine.name}</h2>
               <p>{routine.description}</p>
-              <p>Routine created by: </p>
+              <p>Routine created by: Jim</p>
               <button onClick={() => props.onShowRoutine(routine)}>Show Routine</button>
             </div>
           );

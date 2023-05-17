@@ -23,6 +23,8 @@ export function RoutinesShow(props) {
               {exercise.video_url}
             </a>
           </h6>
+          <h6>Reps: 8-10</h6>
+          <h6>Sets: 4</h6>
         </li>
       ))}
     </div>
